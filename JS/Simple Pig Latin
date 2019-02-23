@@ -1,0 +1,25 @@
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+Examples
+
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
+
+My code:
+function pigIt(str){
+  var words = str.split(" ");
+  var a = ""
+  var sentence =[]
+  var patt = new RegExp(/\W/);
+  for (i = 0;i < words.length; i++) {
+    a = words[i]
+    if (patt.test(a) == false) {
+      a = a.split("")
+      a.splice(a.length,0,a[0], "ay")
+      a.splice(0, 1)
+      a = a.join("")
+    }
+    sentence.push(a)
+  }
+  sentence = sentence.join(" ")
+  return sentence
+}
