@@ -1,0 +1,23 @@
+Modify the kebabize function so that it converts a camel case string into a kebab case.
+
+kebabize('camelsHaveThreeHumps') // camels-have-three-humps
+kebabize('camelsHave3Humps') // camels-have-humps
+
+
+My code:
+def kebabize(string):
+    asciiNumber = 0
+    solution = ""
+    whichLetter = 0
+    for letter in string:
+        asciiNumber = ord(letter)
+        if 65 <= asciiNumber <= 90:
+            if whichLetter > 0:
+                solution += "-"
+            solution += chr(asciiNumber + 32)
+        elif 65 + 32<= asciiNumber <= 90 + 32:
+            solution += letter
+        else:
+            continue
+        whichLetter += 1
+    return solution
